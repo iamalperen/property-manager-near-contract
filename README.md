@@ -133,13 +133,13 @@ export BENEFICIARY=<your-account-here>   # this account receives contract accoun
 ├── asconfig.json                      # configuration for AssemblyScript compiler (supports multiple contracts)
 ├── package.json                       # NodeJS project manifest
 ├── scripts
-│   ├── 1.dev-deploy.sh                # helper: build and deploy contracts
+│   ├── dev-deploy.sh                # helper: build and deploy contracts
 │   ├── 2.use-contract.sh              # helper: call methods on ContractPromise
-│   ├── 3.cleanup.sh                   # helper: delete build and deploy artifacts
+│   ├── cleanup.sh                   # helper: delete build and deploy artifacts
 │   └── README.md                      # documentation for helper scripts
 ├── src
 │   ├── as_types.d.ts                  # AssemblyScript headers for type hints
-│   ├── simple                         # Contract 1: "Simple example"
+│   ├── manager                         # Contract 1: "Simple example"
 │   │   ├── __tests__
 │   │   │   ├── as-pect.d.ts           # as-pect unit testing headers for type hints
 │   │   │   └── index.unit.spec.ts     # unit tests for contract 1

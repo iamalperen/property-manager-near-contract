@@ -1,6 +1,30 @@
 import { u128, Context, ContractPromise } from "near-sdk-as";
 
 /**
+ * == CONSTANTS ================================================================
+ */
+
+/**
+ * This is necessary key for initialization of contract
+ */
+export const CONTRACT_OWNER_KEY = 'alp3r3n.testnet.near';
+
+/**
+ * == ENUMS ====================================================================
+ */
+
+/**
+ * Property types of person
+ */
+export enum PropertyType {
+  House,
+  Apartment,
+  Land,
+  Storage,
+  Parking
+};
+
+/**
  * == TYPES ====================================================================
  */
 

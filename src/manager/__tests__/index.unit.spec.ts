@@ -2,7 +2,7 @@ import * as contract from "../assembly";
 
 describe("Contract", () => {
   // VIEW method tests
-
+/**
   it("says hello", () => {
     expect(contract.helloWorld()).toStrictEqual("hello world")
   })
@@ -16,4 +16,6 @@ describe("Contract", () => {
   it("saves data to contract storage", () => {
     expect(contract.write("some-key", "some value")).toStrictEqual("✅ Data saved. ( storage [ 18 bytes ] )")
   })
+
+ */
 })

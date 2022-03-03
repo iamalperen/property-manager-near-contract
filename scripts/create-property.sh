@@ -13,32 +13,20 @@ echo
 [ -z "$CONTRACT" ] || echo "Found it! \$CONTRACT is set to [ $CONTRACT ]"
 
 echo
-echo
 echo ---------------------------------------------------------
-echo "Step 1: Call 'view' functions on the contract"
-echo
-echo "(run this script again to see changes made by this file)"
+echo "Step 1: Call 'createProperty' function on the contract"
 echo ---------------------------------------------------------
 echo
 
-near view $CONTRACT helloWorld
+near call $CONTRACT createProperty '{"propertyId": "11", "name": "Home Sweet Home", "type": 1, "address": "Istanbul", "coords": "40.99047310894828,29.022050248371137"}' --accountId $CONTRACT
 
-echo
-echo
-
-near view $CONTRACT read '{"key":"some-key"}'
-
-echo
 echo
 echo ---------------------------------------------------------
-echo "Step 2: Call 'change' functions on the contract"
+echo "Step 2: Call 'createProperty' function again on the contract with the same id"
 echo ---------------------------------------------------------
 echo
 
-# the following line fails with an error because we can't write to storage without signing the message
-# --> FunctionCallError(HostError(ProhibitedInView { method_name: "storage_write" }))
-# near view $CONTRACT write '{"key": "some-key", "value":"some value"}'
-near call $CONTRACT write '{"key": "some-key", "value":"some value"}' --accountId $CONTRACT
+near call $CONTRACT createProperty '{"propertyId": "11", "name": "Home Sweet Home", "type": 1, "address": "Istanbul", "coords": "40.99047310894828,29.022050248371137"}' --accountId $CONTRACT
 
 echo
 echo "now run this script again to see changes made by this file"

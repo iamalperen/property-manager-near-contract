@@ -12,21 +12,13 @@ echo
 yarn build
 
 echo
-echo
 echo ---------------------------------------------------------
 echo "Step 2: Deploy the contract"
-echo
-echo "(edit scripts/1.dev-deploy.sh to deploy other contract)"
 echo ---------------------------------------------------------
 echo
 
-# uncomment out the line below to deploy the other example contract
-# near dev-deploy ./build/debug/simple.wasm
+near dev-deploy ./build/debug/manager.wasm
 
-# comment the line below to deploy the other example contract
-near dev-deploy ./build/debug/singleton.wasm
-
-echo
 echo
 echo ---------------------------------------------------------
 echo "Step 3: Prepare your environment for next steps"

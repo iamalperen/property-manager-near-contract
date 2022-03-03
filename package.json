@@ -1,7 +1,7 @@
 {
-  "name": "starter--near-sdk-as",
-  "version": "0.0.1",
-  "description": "Start with a basic project",
+  "name": "property-manager",
+  "version": "1.0.0",
+  "description": "Personal Property Management Contract",
   "scripts": {
     "dev": "watch -d -n 1 'clear && yarn test'",
     "test": "yarn asp -f unit.spec",
@@ -10,10 +10,15 @@
     "build:release": "asb",
     "asp": "asp --verbose --nologo"
   },
-  "keywords": [],
-  "author": "hello@near.org",
-  "license": "ISC",
+  "keywords": [
+    "property",
+    "manager",
+    "smart-contract",
+    "near-protocol"
+  ],
+  "author": "alperen.talaslioglu@gmail.com",
+  "license": "MIT",
   "devDependencies": {
-    "near-sdk-as": "^3.1.0"
+    "near-sdk-as": "^3.2.3"
   }
 }
