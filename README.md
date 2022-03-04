@@ -10,11 +10,23 @@ working on Near Protocol.
 
 Deployed Contract: https://explorer.testnet.near.org/transactions/79zc9e1d3F4tCQMp4sQwKdea4mp9uPNHJv94FNnTKjM2
 
-UI Demo :
+User Interface - Frontend Project :
 
-Screnshots :
+Initial Home Page
 
+![](https://github.com/iamalperen/property-manager-near-contract/blob/main/ss/1.png?raw=true)
 
+Property List After Login
+
+![](https://github.com/iamalperen/property-manager-near-contract/blob/main/ss/2.png?raw=true)
+
+Property Creation Modal
+
+![](https://github.com/iamalperen/property-manager-near-contract/blob/main/ss/3.png?raw=true)
+
+Remove Property 
+
+![](https://github.com/iamalperen/property-manager-near-contract/blob/main/ss/4.png?raw=true)
 
 ## Usage
 
