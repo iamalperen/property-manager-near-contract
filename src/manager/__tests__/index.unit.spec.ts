@@ -4,7 +4,8 @@ import {createProperty, getAllProperties, getProperty, properties, removePropert
 const owner = "alp3r3n.testnet";
 
 beforeEach(() => {
-    VMContext.setCurrent_account_id(owner)
+    VMContext.setCurrent_account_id(owner);
+    VMContext.setSigner_account_id(owner);
 });
 
 
@@ -43,13 +44,19 @@ describe("Person", () => {
     it("should able to get all properties after creating 2 properties", () => {
         createProperty("11", "Home Sweet Home", 1, "Istanbul", "40.99047310894828,29.022050248371137");
         createProperty("12", "Home Sweet Home2", 2, "Istanbul2", "42.99047310894828,22.022050248371137");
-        const propertiesList = getAllProperties();
+        const propertiesList = getAllProperties(owner);
         expect(propertiesList.length).toBe(2);
     });
 
     it("should not able to get all properties without creating any property", () => {
-        const propertiesList = getAllProperties();
+        const propertiesList = getAllProperties(owner);
         expect(propertiesList.length).toBe(0);
+    });
+
+    it("should not able to get all properties without accurate account id", () => {
+        expect(() => {
+           getAllProperties("test owner");
+        }).toThrow();
     });
 
     it("should able to remove a property by id", () => {

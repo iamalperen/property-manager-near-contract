@@ -60,6 +60,22 @@ run `./scripts/get-all-properties.sh` and all existing properties from your cont
 
 run `./scripts/get-property.sh` and an existing property from your contract will be returned
 
+
+### Unit Tests
+
+[Describe]: Person
+[Success]: ✔ should able to create a new property <br />
+[Success]: ✔ should not able to create a property with same id <br />
+[Success]: ✔ should able to get a property by id <br />
+[Success]: ✔ should not able to get a property by non existing id <br />
+[Success]: ✔ should able to get all properties after creating 2 properties <br />
+[Success]: ✔ should not able to get all properties without creating any property <br />
+[Success]: ✔ should not able to get all properties without accurate account id <br />
+[Success]: ✔ should able to remove a property by id <br />
+[Success]: ✔ should not able to remove a property by non existing id <br />
+
+
+
 ## Meta
 
 Created and maintained by [Alperen](https://github.com/iamalperen) under [MIT](LICENSE.md) License
