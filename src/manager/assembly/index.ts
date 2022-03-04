@@ -19,9 +19,11 @@ export function getProperty(propertyId: string): Property | null {
     return properties.get(propertyId);
 }
 
-export function getAllProperties(): Array<Property> {
+export function getAllProperties(accountId: string): Array<Property> {
     const propertiesList: Array<Property> = [];
     const user = Context.sender;
+
+    assert(user == accountId, "🚫 This user is not same the sender.");
 
     for (let i = 0; i < properties.entries().length; i++) {
         if (properties.entries()[i].value.personId == user) {
