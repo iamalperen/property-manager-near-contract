@@ -1,170 +1,65 @@
-# `near-sdk-as` Starter Kit
+# Property Manager Near Contract
 
-This is a good project to use as a starting point for your AssemblyScript project.
+This is a smart contract developed in AssemblyScript to track people's properties on blockchain. This smart contract is
+working on Near Protocol.
 
-## Samples
+[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)]()
+[![PyPI](https://img.shields.io/pypi/status/Django.svg)]()
 
-This repository includes a complete project structure for AssemblyScript contracts targeting the NEAR platform.
+## Project Overview
 
-The example here is very basic.  It's a simple contract demonstrating the following concepts:
-- a single contract
-- the difference between `view` vs. `change` methods
-- basic contract storage
+Deployed Contract: https://explorer.testnet.near.org/transactions/79zc9e1d3F4tCQMp4sQwKdea4mp9uPNHJv94FNnTKjM2
 
-There are 2 AssemblyScript contracts in this project, each in their own folder:
+UI Demo :
 
-- **simple** in the `src/simple` folder
-- **singleton** in the `src/singleton` folder
+Screnshots :
 
-### Simple
-
-We say that an AssemblyScript contract is written in the "simple style" when the `index.ts` file (the contract entry point) includes a series of exported functions.
-
-In this case, all exported functions become public contract methods.
-
-```ts
-// return the string 'hello world'
-export function helloWorld(): string {}
-
-// read the given key from account (contract) storage
-export function read(key: string): string {}
-
-// write the given value at the given key to account (contract) storage
-export function write(key: string, value: string): string {}
-
-// private helper method used by read() and write() above
-private storageReport(): string {}
-```
-
-### Singleton
-
-We say that an AssemblyScript contract is written in the "singleton style" when the `index.ts` file (the contract entry point) has a single exported class (the name of the class doesn't matter) that is decorated with `@nearBindgen`.
-
-In this case, all methods on the class become public contract methods unless marked `private`.  Also, all instance variables are stored as a serialized instance of the class under a special storage key named `STATE`.  AssemblyScript uses JSON for storage serialization (as opposed to Rust contracts which use a custom binary serialization format called borsh).
-
-```ts
-@nearBindgen
-export class Contract {
-
-  // return the string 'hello world'
-  helloWorld(): string {}
-
-  // read the given key from account (contract) storage
-  read(key: string): string {}
-
-  // write the given value at the given key to account (contract) storage
-  @mutateState()
-  write(key: string, value: string): string {}
-
-  // private helper method used by read() and write() above
-  private storageReport(): string {}
-}
-```
 
 
 ## Usage
 
-### Getting started
+### Installation
 
-(see below for video recordings of each of the following steps)
+1. clone this repo
+2. run `yarn install` (or `npm install`)
+3. run `yarn build` (or `npm run build`)
+4. run `yarn test` (or `npm run test`)
+5. explore the contents of `src/`
 
-INSTALL `NEAR CLI` first like this: `npm i -g near-cli`
+### Helper Scripts
 
-1. clone this repo to a local folder
-2. run `yarn`
-3. run `./scripts/1.dev-deploy.sh`
-3. run `./scripts/2.use-contract.sh`
-4. run `./scripts/2.use-contract.sh` (yes, run it to see changes)
-5. run `./scripts/3.cleanup.sh`
+To see and understand the contract, please check the below scripts in details.
 
-### Videos
+Install `NEAR CLI` first like this: `npm i -g near-cli`
 
-**`1.dev-deploy.sh`**
+run `yarn`
 
-This video shows the build and deployment of the contract.
+run `near login` and login to your Near account
 
-[![asciicast](https://asciinema.org/a/409575.svg)](https://asciinema.org/a/409575)
+#### Development Mode Deployment
 
-**`2.use-contract.sh`**
+run `./scripts/dev-deploy.sh` and the contract will be deployed
 
-This video shows contract methods being called.  You should run the script twice to see the effect it has on contract state.
+#### Production Mode Deployment
 
-[![asciicast](https://asciinema.org/a/409577.svg)](https://asciinema.org/a/409577)
+run `./scripts/prod-deploy.sh` and the contract will be deployed
 
-**`3.cleanup.sh`**
+#### Creating Property Script
 
-This video shows the cleanup script running.  Make sure you add the `BENEFICIARY` environment variable. The script will remind you if you forget.
+run `./scripts/create-property.sh` and a new property will be added to your contract
 
-```sh
-export BENEFICIARY=<your-account-here>   # this account receives contract account balance
-```
+#### Deleting Property Script
 
-[![asciicast](https://asciinema.org/a/409580.svg)](https://asciinema.org/a/409580)
+run `./scripts/delete-property.sh` and an existing property will be removed from your contract
 
-### Other documentation
+#### Getting All Properties Script
 
-- See `./scripts/README.md` for documentation about the scripts
-- Watch this video where Willem Wyndham walks us through refactoring a simple example of a NEAR smart contract written in AssemblyScript
+run `./scripts/get-all-properties.sh` and all existing properties from your contract will be returned
 
-  https://youtu.be/QP7aveSqRPo
+#### Getting Specific Property Script
 
-  ```
-  There are 2 "styles" of implementing AssemblyScript NEAR contracts:
-  - the contract interface can either be a collection of exported functions
-  - or the contract interface can be the methods of a an exported class
+run `./scripts/get-property.sh` and an existing property from your contract will be returned
 
-  We call the second style "Singleton" because there is only one instance of the class which is serialized to the blockchain storage.  Rust contracts written for NEAR do this by default with the contract struct.
+## Meta
 
-   0:00 noise (to cut)
-   0:10 Welcome
-   0:59 Create project starting with "npm init"
-   2:20 Customize the project for AssemblyScript development
-   9:25 Import the Counter example and get unit tests passing
-  18:30 Adapt the Counter example to a Singleton style contract
-  21:49 Refactoring unit tests to access the new methods
-  24:45 Review and summary
-  ```
-
-## The file system
-
-```sh
-├── README.md                          # this file
-├── as-pect.config.js                  # configuration for as-pect (AssemblyScript unit testing)
-├── asconfig.json                      # configuration for AssemblyScript compiler (supports multiple contracts)
-├── package.json                       # NodeJS project manifest
-├── scripts
-│   ├── dev-deploy.sh                # helper: build and deploy contracts
-│   ├── 2.use-contract.sh              # helper: call methods on ContractPromise
-│   ├── cleanup.sh                   # helper: delete build and deploy artifacts
-│   └── README.md                      # documentation for helper scripts
-├── src
-│   ├── as_types.d.ts                  # AssemblyScript headers for type hints
-│   ├── manager                         # Contract 1: "Simple example"
-│   │   ├── __tests__
-│   │   │   ├── as-pect.d.ts           # as-pect unit testing headers for type hints
-│   │   │   └── index.unit.spec.ts     # unit tests for contract 1
-│   │   ├── asconfig.json              # configuration for AssemblyScript compiler (one per contract)
-│   │   └── assembly
-│   │       └── index.ts               # contract code for contract 1
-│   ├── singleton                      # Contract 2: "Singleton-style example"
-│   │   ├── __tests__
-│   │   │   ├── as-pect.d.ts           # as-pect unit testing headers for type hints
-│   │   │   └── index.unit.spec.ts     # unit tests for contract 2
-│   │   ├── asconfig.json              # configuration for AssemblyScript compiler (one per contract)
-│   │   └── assembly
-│   │       └── index.ts               # contract code for contract 2
-│   ├── tsconfig.json                  # Typescript configuration
-│   └── utils.ts                       # common contract utility functions
-└── yarn.lock                          # project manifest version lock
-```
-
-You may clone this repo to get started OR create everything from scratch.
-
-Please note that, in order to create the AssemblyScript and tests folder structure, you may use the command `asp --init` which will create the following folders and files:
-
-```
-./assembly/
-./assembly/tests/
-./assembly/tests/example.spec.ts
-./assembly/tests/as-pect.d.ts
-```
+Created and maintained by [Alperen](https://github.com/iamalperen) under [MIT](LICENSE.md) License
