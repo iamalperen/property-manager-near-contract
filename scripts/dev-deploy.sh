@@ -28,11 +28,11 @@ echo "    it will look like this: [ Account id: dev-###-### ]"
 echo
 echo "(b) set an environment variable using this account name"
 echo "    see example below (this may not work on Windows)"
+echo ---------------------------------------------------------
 echo
 echo ---------------------------------------------------------
 echo 'export CONTRACT=<dev-123-456>'
-# uncomment this line for a useful hint when using the singleton style
-# echo "near call \$CONTRACT init --accountId \$CONTRACT"
+echo 'export ACCOUNT=<testeraccount.testnet>'
 echo ---------------------------------------------------------
 echo
 
