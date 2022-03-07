@@ -21,7 +21,7 @@ echo "Step 1: Call 'getAllProperties' function on the contract"
 echo ---------------------------------------------------------
 echo
 
-near call $CONTRACT getAllProperties '{"accountId": "alp3r3n.testnet" }' --accountId $ACCOUNT --gas=75000000000000
+near call $CONTRACT getAllProperties '{"accountId": "alp3r3n.testnet" }' --accountId $ACCOUNT --gas=250000000000000
 
 echo
 echo "now run this script again to see changes made by this file"
