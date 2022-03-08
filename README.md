@@ -16,17 +16,19 @@ Initial Home Page
 
 ![](https://github.com/iamalperen/property-manager-near-contract/blob/main/ss/1.png?raw=true)
 
-Property List After Login
+Property List After Login without having property
 
 ![](https://github.com/iamalperen/property-manager-near-contract/blob/main/ss/2.png?raw=true)
+
+Property List After Login with having property
+
+![](https://github.com/iamalperen/property-manager-near-contract/blob/main/ss/4.png?raw=true)
+
 
 Property Creation Modal
 
 ![](https://github.com/iamalperen/property-manager-near-contract/blob/main/ss/3.png?raw=true)
 
-Remove Property 
-
-![](https://github.com/iamalperen/property-manager-near-contract/blob/main/ss/4.png?raw=true)
 
 ## Usage
 
