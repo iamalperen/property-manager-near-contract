@@ -15,8 +15,13 @@ export function createProperty(propertyId: string, name: string, type: PropertyT
 
 export function getProperty(propertyId: string): Property | null {
     assert(properties.contains(propertyId), "🚫 This property does not exist.");
+    const user = Context.sender;
+    const property = properties.get(propertyId);
+    if (property) {
+        assert(property.personId === user, "🚫 This property is not belonging to you.");
+    }
     logging.log(`🏠 Property successfully exists and return.`);
-    return properties.get(propertyId);
+    return property;
 }
 
 export function getAllProperties(accountId: string): Array<Property> {
