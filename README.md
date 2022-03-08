@@ -10,7 +10,7 @@ working on Near Protocol. People will be able to store their properties like Car
 
 Deployed Contract: https://explorer.testnet.near.org/transactions/79zc9e1d3F4tCQMp4sQwKdea4mp9uPNHJv94FNnTKjM2
 
-User Interface - Frontend Project :
+User Interface - Frontend Project : https://goofy-minsky-c05d44.netlify.app/
 
 Initial Home Page
 
