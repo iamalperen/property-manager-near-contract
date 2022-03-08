@@ -1,7 +1,7 @@
 # Property Manager Near Contract
 
 This is a smart contract developed in AssemblyScript to track people's properties on blockchain. This smart contract is
-working on Near Protocol.
+working on Near Protocol. People will be able to store their properties like Car Park Slot, Land, House and Apartment in blockchain by using this contract.
 
 [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)]()
 [![PyPI](https://img.shields.io/pypi/status/Django.svg)]()
